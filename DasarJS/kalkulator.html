@@ -1,0 +1,78 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>KalkulatorJs</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><input type="text" id="angkaSatu"></td>
+            <td>
+                <select  id="op">
+                    <option>+</option>
+                    <option>-</option>
+                    <option>/</option>
+                    <option>x</option>
+                    <option>Mod</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="text" id="angkaDua"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="=" onclick="kalkulator()" style="width: 100px; margin-left: 35px;"></td>
+        </tr>
+        <tr>
+            <td><input type="text" id="hasil"></td>
+        </tr>
+    </table>
+    <script>
+                function kalkulator(){
+                        //variable angka satu
+                        var angkaSatu = parseInt(document.getElementById('angkaSatu').value);
+                        //variable angka dua
+                        var angkaDua = parseInt(document.getElementById('angkaDua').value);
+                        //variable operasi aritmatik
+                        var op = document.getElementById('op').value;
+                        //variable angka hasil
+                        var hasil = document.getElementById('hasil');
+                        //variable untuk total angka satu dan angka dua
+                        var total;
+                        if(isNaN(angkaSatu) || isNaN(angkaDua)){
+                        alert('isi form dengan angka!')
+                        }else{
+                            switch (op){
+                                case '+':
+                                total = angkaSatu+angkaDua;
+                                break;
+
+                                case '-':
+                                total = angkaSatu-angkaDua;
+                                break;
+
+                                case 'x':
+                                total = angkaSatu*angkaDua;
+                                break;
+
+                                case '/':
+                                total = angkaSatu/angkaDua;
+                                break;
+
+                                case 'Mod':
+                                total = angkaSatu%angkaDua;
+                                break; 
+
+                                default:
+                                alert('Operator Tidak Ada!');
+                                break;
+                            }
+                        }
+                        hasil.value = total;
+                        }
+    </script>
+</body>
+</html>
